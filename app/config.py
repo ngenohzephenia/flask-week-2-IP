@@ -1,26 +1,26 @@
-class config:
+class Config:
     '''
     General configuration parent class
     '''
-
     pass
 
 
-class ProdConfig(config):
+
+class ProdConfig(Config):
     '''
-    Production configuration child class
+    Production  configuration child class
 
     Args:
-       Config: The parent configuration class with General configuration settings
+        Config: The parent configuration class with General configuration settings
     '''
     pass
 
-class DevConfig(config):
-   '''
-   Development configuration child class
 
-   Args:
-       Config: The parent configuration settings
+class DevConfig(Config):
     '''
+    Development  configuration child class
 
-    DEBUG = True  
+    Args:
+        Config: The parent configuration class with General configuration settings
+    '''
+  
