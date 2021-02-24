@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Navbar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body onload="startTime()" style="background-color: rgb(218, 201, 14);">
+    <div id="txt" style="padding-left: 0.7%; font-size: 30px; font-weight: bolder; position: fixed; padding-top: 50px;"></div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position:fixed;width: 100%;">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#"><b>NEWS DASHBOARD</b></a>
+
+      <!-- Links -->
+      <ul class="navbar-nav" style="padding-left: 200px">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('main.index') }}" style="color: white; font-size:20px;" ><b>Home</b></a>
+        </li>
+        <br />
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+            style="color:rgb(216, 208, 208); padding-left: 70px"
+          >
+            <b>More News</b>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="">BBC News</a>
+            <a class="dropdown-item" href="{{ url_for('main.index') }}">ABC News</a>
+            <a class="dropdown-item" href="">CNN News</a>
+            <a class="dropdown-item" href="">BUSINESS News</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <br><br><br>
+    <script>
+      function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+      }
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        } // add zero in front of numbers < 10
+        return i;
+      }
+    </script>
+    <br />
+  </body>
+</html>
